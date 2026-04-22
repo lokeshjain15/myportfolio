@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact | Lokesh Dugar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Glow */
+.glow {
+  text-shadow: 0 0 10px #3b82f6;
+}
+</style>
+</head>
+
+<body class="bg-gray-900 text-white">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center p-5 bg-gray-800">
+  <h1 class="text-xl font-bold text-blue-400 glow">Lokesh</h1>
+
+  <ul class="flex gap-6">
+    <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
+    <li><a href="about.html" class="hover:text-blue-400">About</a></li>
+    <li><a href="projects.html" class="hover:text-blue-400">Projects</a></li>
+    <li><a href="contact.html" class="text-blue-400">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- CONTACT SECTION -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6">
+
+  <h1 class="text-4xl font-bold mb-8 text-center glow">Contact Me</h1>
+
+  <!-- CONTACT INFO -->
+  <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-10 text-center space-y-3">
+
+    <p>
+      📧 Email: 
+      <a href="mailto:dugarlokesh22@gmail.com" class="text-blue-400 hover:underline">
+        dugarlokesh22@gmail.com
+      </a>
+    </p>
+
+    <p>
+      📞 Phone: 
+      <a href="tel:8356996280" class="text-blue-400 hover:underline">
+        8356996280
+      </a>
+    </p>
+
+    <p>
+      💼 LinkedIn: 
+      <a href="https://linkedin.com/in/lokesh-dugar" target="_blank" class="text-blue-400 hover:underline">
+        linkedin.com/in/lokesh-dugar
+      </a>
+    </p>
+
+  </div>
+
+  <!-- CONTACT FORM -->
+  <form id="contactForm" class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md space-y-4">
+
+    <input type="text" id="name" placeholder="Your Name"
+      class="w-full p-3 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+
+    <input type="email" id="email" placeholder="Your Email"
+      class="w-full p-3 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+
+    <textarea id="message" placeholder="Your Message"
+      class="w-full p-3 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+
+    <button type="submit"
+      class="w-full bg-blue-500 py-3 rounded-lg hover:bg-blue-600 transition">
+      Send Message
+    </button>
+
+  </form>
+
+  <!-- MESSAGE -->
+  <p id="formMsg" class="mt-4 text-green-400"></p>
+
+</section>
+
+<!-- JS FUNCTION -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let message = document.getElementById("message").value;
+
+  // Open email client
+  let mailLink = `mailto:dugarlokesh22@gmail.com?subject=Message from ${name}&body=${message} (Reply to: ${email})`;
+
+  window.location.href = mailLink;
+
+  document.getElementById("formMsg").textContent = "Opening your email app...";
+});
+</script>
+
+</body>
+</html>

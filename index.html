@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lokesh Dugar | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Glow effect */
+.glow {
+  text-shadow: 0 0 10px #3b82f6, 0 0 25px #3b82f6;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Background animation */
+@keyframes gradientMove {
+  0% {background-position: 0%}
+  100% {background-position: 100%}
+}
+.bg-animated {
+  background: linear-gradient(270deg, #020617, #0f172a, #1e3a8a);
+  background-size: 400% 400%;
+  animation: gradientMove 12s infinite alternate;
+}
+
+/* Typing cursor */
+.cursor::after {
+  content: "|";
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%,50%,100% {opacity:1;}
+  25%,75% {opacity:0;}
+}
+</style>
+</head>
+
+<body class="bg-animated text-white">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center px-6 py-4 bg-black/40 backdrop-blur-md fixed w-full z-50">
+  <h1 class="text-xl md:text-2xl font-bold text-blue-400 glow">Lokesh</h1>
+
+  <ul class="flex gap-6 text-sm md:text-base">
+    <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
+    <li><a href="about.html" class="hover:text-blue-400">About</a></li>
+    <li><a href="projects.html" class="hover:text-blue-400">Projects</a></li>
+    <li><a href="contact.html" class="hover:text-blue-400">Contact</a></li>
+    <li>
+      <a href="./assets/resume.pdf" target="_blank" class="text-blue-400 hover:underline">
+        Resume
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative pt-24">
+
+  <!-- Glow Background -->
+  <div class="absolute w-80 h-80 bg-blue-500 rounded-full blur-3xl opacity-20 float"></div>
+
+  <!-- Heading -->
+  <h1 class="text-4xl md:text-6xl font-bold mb-4 glow leading-tight z-10">
+    Hi, I'm <span class="text-blue-400">Lokesh Dugar</span>
+  </h1>
+
+  <!-- Typing Text -->
+  <h2 id="typing" class="text-xl md:text-2xl text-gray-300 mb-6 cursor z-10"></h2>
+
+  <!-- Description -->
+  <p class="max-w-xl text-gray-400 mb-8 text-sm md:text-base z-10">
+    Passionate IT student building modern web apps, exploring AI, and creating real-world digital solutions.
+  </p>
+
+  <!-- Resume Buttons -->
+  <div class="flex gap-4 flex-wrap justify-center mb-6 z-10">
+
+    <a href="./assets/resume.pdf" target="_blank"
+       class="bg-blue-500 px-6 py-3 rounded-lg shadow-lg hover:scale-110 hover:bg-blue-600 transition duration-300">
+       👁 View Resume
+    </a>
+
+    <a href="./assets/resume.pdf" download
+       class="border border-blue-400 px-6 py-3 rounded-lg hover:bg-blue-400 hover:text-black transition duration-300">
+       ⬇ Download Resume
+    </a>
+
+  </div>
+
+  <!-- Projects Button -->
+  <a href="projects.html"
+     class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg shadow-lg hover:scale-110 transition duration-300 z-10">
+     🚀 View Projects
+  </a>
+
+</section>
+
+<!-- JS -->
+<script>
+const text = ["Web Developer", "React Learner", "AI Explorer", "Frontend Developer"];
+let i = 0, j = 0, current = "", isDeleting = false;
+
+function type() {
+  current = text[i];
+
+  if (!isDeleting) {
+    document.getElementById("typing").textContent = current.substring(0, j++);
+    if (j > current.length) {
+      isDeleting = true;
+      setTimeout(type, 1000);
+      return;
+    }
+  } else {
+    document.getElementById("typing").textContent = current.substring(0, j--);
+    if (j < 0) {
+      isDeleting = false;
+      i = (i + 1) % text.length;
+    }
+  }
+  setTimeout(type, isDeleting ? 50 : 100);
+}
+type();
+</script>
+
+</body>
+</html>

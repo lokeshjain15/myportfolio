@@ -1,0 +1,69 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #111;
+}
+
+.nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.section {
+  padding: 50px;
+  text-align: center;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+  padding: 50px;
+}
+
+.card {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.btn {
+  background: blue;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn-outline {
+  border: 1px solid white;
+  padding: 10px 20px;
+}
+.btn {
+  background: #3b82f6;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
+
+.btn-outline {
+  border: 1px solid white;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
